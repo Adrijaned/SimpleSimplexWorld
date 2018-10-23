@@ -1,0 +1,11 @@
+{
+    "id" : "SimpleSimplexWorld",
+    "version" : "0.1.0-SNAPSHOT",
+    "author" : "",
+    "displayName" : "SimpleSimplexWorld",
+    "description" : "",
+    "dependencies" : [
+      {"id": "Core", "minVersion": "2.0.0"}
+    ],
+    "serverSideOnly" : false
+}
