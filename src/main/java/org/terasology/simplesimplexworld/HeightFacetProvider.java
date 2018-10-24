@@ -43,7 +43,7 @@ public class HeightFacetProvider implements FacetProvider {
         SurfaceHeightFacet facet = new SurfaceHeightFacet(region.getRegion(), border);
         Rect2i regionPositions = facet.getWorldRegion();
         for (BaseVector2i position : regionPositions.contents()) {
-            facet.setWorld(position, noise.noise(position.x(), position.y()) * 7);
+            facet.setWorld(position, noise.noise(position.x(), position.y()));
         }
         region.setRegionFacet(SurfaceHeightFacet.class, facet);
     }

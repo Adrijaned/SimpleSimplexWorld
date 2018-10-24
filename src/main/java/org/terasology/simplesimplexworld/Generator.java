@@ -15,8 +15,10 @@
  */
 package org.terasology.simplesimplexworld;
 
-import org.terasology.core.world.generator.facetProviders.SeaLevelProvider;
 import org.terasology.engine.SimpleUri;
+import org.terasology.entitySystem.entity.EntityRef;
+import org.terasology.math.geom.Vector3f;
+import org.terasology.mazeAPI.mazeItems.Tile;
 import org.terasology.registry.In;
 import org.terasology.world.generation.BaseFacetedWorldGenerator;
 import org.terasology.world.generation.WorldBuilder;
@@ -27,6 +29,7 @@ import org.terasology.world.generator.plugin.WorldGeneratorPluginLibrary;
 public class Generator extends BaseFacetedWorldGenerator {
     @In
     private WorldGeneratorPluginLibrary worldGeneratorPluginLibrary;
+    private ChunkTypeFacetProvider chunkTypeFacetProvider;
 
     public Generator(SimpleUri uri) {
         super(uri);
@@ -34,10 +37,24 @@ public class Generator extends BaseFacetedWorldGenerator {
 
     @Override
     protected WorldBuilder createWorld() {
+        chunkTypeFacetProvider = new ChunkTypeFacetProvider();
         return new WorldBuilder(worldGeneratorPluginLibrary)
                 .addProvider(new HeightFacetProvider())
-                .addProvider(new SeaLevelProvider(-30))
-                .addProvider(new TerrainFacetProvider())
-                .addRasterizer(new DirtRasterizer());
+                .addProvider(chunkTypeFacetProvider)
+                .addRasterizer(new MainRasterizer());
+    }
+
+    @Override
+    public Vector3f getSpawnPosition(EntityRef entity) { //TODO this is dirty hack
+        for (Tile tile : chunkTypeFacetProvider.getMaze().level) {
+            if (tile.isPassable) {
+                return new Vector3f(
+                        (tile.position.x - (chunkTypeFacetProvider.getMaze().config.width >> 1)) * 32f,
+                        4,
+                        (tile.position.y - (chunkTypeFacetProvider.getMaze().config.height >> 1)) * 32f
+                );
+            }
+        }
+        return null;
     }
 }

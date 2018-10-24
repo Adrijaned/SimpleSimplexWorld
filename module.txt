@@ -5,7 +5,8 @@
     "displayName" : "SimpleSimplexWorld",
     "description" : "",
     "dependencies" : [
-      {"id": "Core", "minVersion": "2.0.0"}
+      {"id": "Core", "minVersion": "2.0.0"},
+      {"id": "MazeAPIs", "minVersion": "0.1.0"}
     ],
     "serverSideOnly" : false
 }

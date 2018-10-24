@@ -15,12 +15,6 @@
  */
 package org.terasology.simplesimplexworld;
 
-import org.terasology.math.Region3i;
-import org.terasology.world.generation.Border3D;
-import org.terasology.world.generation.facets.base.BaseFieldFacet3D;
-
-public class TerrainFacet extends BaseFieldFacet3D {
-    public TerrainFacet(Region3i targetRegion, Border3D border) {
-        super(targetRegion, border);
-    }
+public enum ChunkType {
+    CLIFF, CORRIDOR, PLAIN, VOID
 }
