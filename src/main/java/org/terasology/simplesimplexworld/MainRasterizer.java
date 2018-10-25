@@ -56,7 +56,7 @@ public class MainRasterizer implements WorldRasterizer {
             case CLIFF:
                 for (Vector3i pos : chunkRegion.getRegion()) {
                     final Vector3i localPos = ChunkMath.calcBlockPos(pos);
-                    if (localPos.y < 62 + surfaceHeightFacet.get(localPos.x, localPos.z) * 2) {
+                    if (localPos.y < 62 + Math.round(surfaceHeightFacet.get(localPos.x, localPos.z) * 2)) {
                         chunk.setBlock(localPos, stone);
                     }
                 }

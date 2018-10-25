@@ -70,6 +70,7 @@ public class ChunkTypeFacetProvider implements FacetProvider {
                 || chunkPos.z < 0 || chunkPos.z >= mazeConfig.height) {
             facet.setChunkType(ChunkType.VOID);
         } else {
+            facet.setTile(maze.level.getTile(chunkPos.x, chunkPos.z));
             switch (maze.level.getTile(chunkPos.x, chunkPos.z).tileType) {
                 case WALL:
                     facet.setChunkType(ChunkType.CLIFF);

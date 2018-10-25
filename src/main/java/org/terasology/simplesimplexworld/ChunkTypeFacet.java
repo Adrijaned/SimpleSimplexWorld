@@ -16,6 +16,7 @@
 package org.terasology.simplesimplexworld;
 
 import org.terasology.math.Region3i;
+import org.terasology.mazeAPI.mazeItems.Tile;
 import org.terasology.world.generation.Border3D;
 import org.terasology.world.generation.WorldFacet3D;
 
@@ -23,10 +24,19 @@ public class ChunkTypeFacet implements WorldFacet3D {
     private final Region3i worldRegion;
     private final Region3i relativeRegion;
     private ChunkType chunkType;
+    private Tile tile;
 
     public ChunkTypeFacet(Region3i targetRegion, Border3D border) {
         worldRegion = border.expandTo3D(targetRegion);
         relativeRegion = border.expandTo3D(targetRegion.size());
+    }
+
+    public Tile getTile() {
+        return tile;
+    }
+
+    public void setTile(Tile tile) {
+        this.tile = tile;
     }
 
     public void setChunkType(ChunkType chunkType) {

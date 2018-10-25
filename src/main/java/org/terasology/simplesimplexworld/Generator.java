@@ -41,7 +41,9 @@ public class Generator extends BaseFacetedWorldGenerator {
         return new WorldBuilder(worldGeneratorPluginLibrary)
                 .addProvider(new HeightFacetProvider())
                 .addProvider(chunkTypeFacetProvider)
-                .addRasterizer(new MainRasterizer());
+                .addProvider(new CliffErosionFacetProvider())
+                .addRasterizer(new MainRasterizer())
+                .addRasterizer(new CliffErosionRasterizer());
     }
 
     @Override
