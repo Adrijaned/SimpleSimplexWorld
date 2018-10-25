@@ -42,8 +42,10 @@ public class Generator extends BaseFacetedWorldGenerator {
                 .addProvider(new HeightFacetProvider())
                 .addProvider(chunkTypeFacetProvider)
                 .addProvider(new CliffErosionFacetProvider())
+                .addProvider(new FloraFacetProvider())
                 .addRasterizer(new MainRasterizer())
-                .addRasterizer(new CliffErosionRasterizer());
+                .addRasterizer(new CliffErosionRasterizer())
+                .addRasterizer(new FloraRasterizer());
     }
 
     @Override
