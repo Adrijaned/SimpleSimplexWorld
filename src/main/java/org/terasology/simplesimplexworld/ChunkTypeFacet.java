@@ -16,7 +16,7 @@
 package org.terasology.simplesimplexworld;
 
 import org.terasology.math.Region3i;
-import org.terasology.mazeAPI.mazeItems.Tile;
+import org.terasology.mazeapi.mazeItems.Tile;
 import org.terasology.world.generation.Border3D;
 import org.terasology.world.generation.WorldFacet3D;
 

@@ -18,7 +18,7 @@ package org.terasology.simplesimplexworld;
 import org.terasology.engine.SimpleUri;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.math.geom.Vector3f;
-import org.terasology.mazeAPI.mazeItems.Tile;
+import org.terasology.mazeapi.mazeItems.Tile;
 import org.terasology.registry.In;
 import org.terasology.world.generation.BaseFacetedWorldGenerator;
 import org.terasology.world.generation.WorldBuilder;
